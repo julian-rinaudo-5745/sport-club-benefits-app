@@ -37,6 +37,7 @@ export interface EndpointWrapper<T> {
 
 export type BenefitDetail = Pick<
   Benefit,
+  | "comercio"
   | "Imagens"
   | "descripcion"
   | "aclaratoria"
