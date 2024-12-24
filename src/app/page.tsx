@@ -1,9 +1,8 @@
 "use client";
-import { BenefitCard } from "@/components/BenefitCard";
-import { SearchBar } from "@/components/SearchBar";
+import { BenefitsSection } from "@/components/Benefits/BenefitSection";
+import { Hero } from "@/components/Hero/Hero";
 import { GetBenefits } from "@/lib/api";
-import { Benefit } from "@/types";
-import Link from "next/link";
+import "@/app/globals.css";
 
 export default function Home() {
   const { data, error, isLoading } = GetBenefits();
@@ -11,26 +10,14 @@ export default function Home() {
 
   if (isLoading) return <div>Cargando...</div>;
   if (error) return <div>Error: {error.message}</div>;
+  if (!benefits) return <div>No hay beneficios</div>;
 
-  const suggestions =
-    benefits?.map((item) => ({ id: item.id, name: item.comercio })) ?? [];
+  localStorage.setItem("benefits", JSON.stringify(benefits));
 
   return (
     <div>
-      <h1>Hola mundo</h1>
-      <SearchBar suggestions={suggestions} />
-      {benefits?.map((item: Benefit) => {
-        return (
-          <Link
-            key={item.id}
-            href={{
-              pathname: `/benefit/${item.id}`,
-            }}
-          >
-            <BenefitCard item={item} />{" "}
-          </Link>
-        );
-      })}
+      <Hero />
+      <BenefitsSection title="NUEVOS BENEFICIOS" benefits={benefits} />
     </div>
   );
 }
