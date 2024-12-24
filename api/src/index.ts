@@ -2,7 +2,7 @@ import express, { Express, Request, Response, Router } from "express";
 import dotenv from "dotenv";
 import pino from "pino";
 import pinoHttp from "pino-http";
-import benefitsRouter from "./routes/benefitsRouter";
+import benefitsRouter from "./routes/BenefitsRouter";
 
 dotenv.config();
 
