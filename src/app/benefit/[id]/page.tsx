@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { GetBenefitById } from "@/lib/api";
 import { BenefitDetail } from "@/components/BenefitDetail/BenefitDetail";
+import { Loading } from "@/components/Loading/Loading";
+import { redirect } from "next/navigation";
 
 interface Param {
   params: Promise<{ id: string }>;
@@ -21,10 +23,12 @@ export default function BenefitDetails({ params }: Param) {
 
   const { data, error, isLoading } = GetBenefitById(benefitId);
 
-  if (isLoading) return <div>Cargando...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (isLoading) return <Loading />;
 
-  if (!data) return <div>Benefit is not found</div>;
+  if (error)
+    console.error("Erros inesperado al obtener el beneficio", error.message);
+
+  if (!data || data.status > 400) return redirect("/not-found");
 
   return <BenefitDetail item={data.body} />;
 }

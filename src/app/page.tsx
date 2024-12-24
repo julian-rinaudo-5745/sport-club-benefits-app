@@ -2,15 +2,21 @@
 import { BenefitsSection } from "@/components/Benefits/BenefitSection";
 import { Hero } from "@/components/Hero/Hero";
 import { GetBenefits } from "@/lib/api";
-import "@/app/globals.css";
+import { Loading } from "@/components/Loading/Loading";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  const { data, error, isLoading } = GetBenefits();
-  const benefits = data?.body?.beneficios;
+  const { data, error: error, isLoading } = GetBenefits();
+  // const benefits = data?.body?.beneficios;
 
-  if (isLoading) return <div>Cargando...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-  if (!benefits) return <div>No hay beneficios</div>;
+  if (isLoading) return <Loading />;
+
+  if (error)
+    console.error("Erros inesperado al obtener beneficios", error.message);
+
+  if (!data || data.status > 400) return redirect("/not-found");
+
+  const benefits = data.body.beneficios;
 
   localStorage.setItem("benefits", JSON.stringify(benefits));
 
