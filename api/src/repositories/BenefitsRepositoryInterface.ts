@@ -1,4 +1,6 @@
+import { AxiosResponse } from "axios";
+
 export interface BenefitRepositoryInterface {
-  getAll(): string;
-  getById(): string;
+  getAll(): Promise<AxiosResponse>;
+  getById(id: number): Promise<AxiosResponse>;
 }

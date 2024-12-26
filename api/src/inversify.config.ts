@@ -1,6 +1,5 @@
 import { Container } from "inversify";
 import { TYPES } from "./types";
-import { BenefitRepositoryInterface } from "./repositories/BenefitsRepositoryInterface";
 import { BenefitsService } from "./services/BenefitsSerivce";
 import { BenefitsController } from "./controllers/BenefitsController";
 import { BenefitsRepository } from "./repositories/BenefitsRepository";

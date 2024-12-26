@@ -2,11 +2,11 @@ import express, { Express, Request, Response, Router } from "express";
 import dotenv from "dotenv";
 import pino from "pino";
 import pinoHttp from "pino-http";
-import benefitsRouter from "./routes/BenefitsRouter";
+import benefitsRouter from "./routes/benefitsRouter";
 
 dotenv.config();
 
-const logger = pino({
+export const logger = pino({
   transport: {
     target: "pino-pretty",
     options: {
