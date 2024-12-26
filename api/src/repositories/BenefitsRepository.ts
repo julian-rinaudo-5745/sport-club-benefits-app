@@ -10,6 +10,8 @@ export class BenefitsRepository implements BenefitRepositoryInterface {
     if (cachedBenefits) {
       return parse(cachedBenefits);
     } else {
+      logger.warn(`${process.env.API_URL}/beneficios`);
+
       const benefits = await axios.get(`${process.env.API_URL}/beneficios`);
 
       await redisClient.set("benefits", stringify(benefits));

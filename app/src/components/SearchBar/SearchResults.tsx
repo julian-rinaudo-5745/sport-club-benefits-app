@@ -18,22 +18,20 @@ export function SearchResults({ results, isVisible }: Props) {
       <div className="divide-y divide-gray-100">
         {results.map((result) => (
           <Link
-            key={`${result.id}-${result.comercio}`}
+            key={`${result.id}-${result.brand_name}`}
             href={{
               pathname: `/benefit/${result.id}`,
             }}
           >
             <div className="flex items-center gap-4 p-4 hover:bg-gray-50 cursor-pointer">
               <img
-                src={result.Imagens[0].url}
+                src={result.image}
                 alt="brand image"
                 className="w-16 h-16 object-contain"
               />
               <div>
-                <h3 className="font-semibold">{result.comercio}</h3>
-                <p className="text-gray-600">
-                  {result.descuento}% de descuento
-                </p>
+                <h3 className="font-semibold">{result.brand_name}</h3>
+                <p className="text-gray-600">{result.discount}% de descuento</p>
               </div>
             </div>
           </Link>

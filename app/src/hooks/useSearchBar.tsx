@@ -10,7 +10,7 @@ export function useSearchBar(items: Benefit[] = []) {
     setQuery(value);
     if (value.length > 0) {
       const filtered = items?.filter((result) =>
-        result.comercio.toLowerCase().includes(value.toLowerCase())
+        result.brand_name.toLowerCase().includes(value.toLowerCase())
       );
       setResults(filtered ?? []);
       setIsResultsVisible(true);
