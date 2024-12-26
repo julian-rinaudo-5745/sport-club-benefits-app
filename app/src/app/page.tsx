@@ -7,7 +7,6 @@ import { redirect } from "next/navigation";
 
 export default function Home() {
   const { data, error: error, isLoading } = GetBenefits();
-  // const benefits = data?.body?.beneficios;
 
   if (isLoading) return <Loading />;
 

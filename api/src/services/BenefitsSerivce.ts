@@ -1,6 +1,9 @@
 import { inject, injectable } from "inversify";
+import { plainToClass } from "class-transformer";
 import { BenefitRepositoryInterface } from "../repositories/BenefitsRepositoryInterface";
 import { TYPES } from "../types";
+import { BenefitsDto } from "../dto/BenefitDTO";
+import { BenefitDetailDto } from "../dto/BenefitDetailDTO";
 
 @injectable()
 export class BenefitsService {
@@ -13,9 +16,19 @@ export class BenefitsService {
     this._repository = repository;
   }
   public async getAll() {
-    return await this._repository.getAll();
+    const benefits = await this._repository.getAll();
+
+    return benefits.data?.body?.beneficios.map((benefit) => {
+      return plainToClass(BenefitsDto, benefit, {
+        excludeExtraneousValues: true,
+      });
+    });
   }
   public async getById(id: number) {
-    return await this._repository.getById(id);
+    const benefit = await this._repository.getById(id);
+
+    return plainToClass(BenefitDetailDto, benefit.data.body, {
+      excludeExtraneousValues: true,
+    });
   }
 }
