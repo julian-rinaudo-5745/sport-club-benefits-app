@@ -12,10 +12,10 @@ export class BenefitsService {
   ) {
     this._repository = repository;
   }
-  public getAll() {
-    return this._repository.getAll();
+  public async getAll() {
+    return await this._repository.getAll();
   }
-  public getById() {
-    return this._repository.getById();
+  public async getById(id: number) {
+    return await this._repository.getById(id);
   }
 }
