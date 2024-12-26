@@ -1,4 +1,4 @@
-export enum PaymentsMethods {
-  Cash = "Efectivo",
-  Card = "Tarjeta",
+export enum PaymentMethods {
+  Cash = "Cash",
+  Card = "Card",
 }

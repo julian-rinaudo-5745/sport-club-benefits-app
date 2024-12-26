@@ -15,7 +15,7 @@ export function SearchBar({ items }: { items: Benefit[] }) {
   }, [path]);
 
   return (
-    <div className="relative flex-1 max-w-2xl">
+    <div className="relative flex-1 max-w-2xl" data-testid="search-bar">
       <div className="relative">
         <input
           type="text"

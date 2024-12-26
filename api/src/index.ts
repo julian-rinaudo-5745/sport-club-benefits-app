@@ -42,9 +42,10 @@ const port = process.env.PORT || 3000;
 
 app.use(loggerMiddleware);
 let corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: ["*"],
 };
 
+app.use(cors(corsOptions));
 //Routes
 app.use("/benefits", benefitsRouter);
 
@@ -52,5 +53,4 @@ app.listen(port, () => {
   logger.info(`[server]: Server is running at http://localhost:${port}`);
 });
 
-app.use(cors(corsOptions));
 app.use(responseTime());
