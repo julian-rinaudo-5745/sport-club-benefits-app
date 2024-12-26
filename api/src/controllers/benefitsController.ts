@@ -17,10 +17,9 @@ export class BenefitsController {
   public async getAll(req: Request, res: Response) {
     try {
       const benefits = await this._service.getAll();
-      if (benefits.data.length === 0) {
+      if (benefits.length === 0) {
         res.sendStatus(404);
       }
-
       res.status(200).send(benefits);
     } catch (error) {
       this.handleError(error as Error, res);
@@ -33,7 +32,7 @@ export class BenefitsController {
       }
       const benefit = await this._service.getById(Number(req.params.id));
 
-      if (benefit.data.length === 0) {
+      if (!benefit.id) {
         res.sendStatus(404);
       }
 
