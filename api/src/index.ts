@@ -2,6 +2,7 @@ import express, { Express, Request, Response, Router } from "express";
 import dotenv from "dotenv";
 import pino from "pino";
 import pinoHttp from "pino-http";
+import cors from "cors";
 import benefitsRouter from "./routes/benefitsRouter";
 
 dotenv.config();
@@ -33,6 +34,11 @@ const app: Express = express();
 const port = process.env.PORT || 3000;
 
 app.use(loggerMiddleware);
+let corsOptions = {
+  origin: ["http://localhost:3000"],
+};
+
+app.use(cors(corsOptions));
 
 //Routes
 app.use("/benefits", benefitsRouter);

@@ -33,7 +33,10 @@ export function BenefitDetail({ item }: { item: Props }) {
     setIsFavorite(isBenefitFavorite());
   }, [storedValue, item]);
 
-  const paymentsMethods = { card: item.tarjeta, cash: item.efectivo };
+  const paymentsMethods = {
+    card: item.is_card_payment_method,
+    cash: item.is_cash_payment_method,
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
@@ -42,7 +45,7 @@ export function BenefitDetail({ item }: { item: Props }) {
           <div className="md:col-span-1">
             <div className="bg-white rounded-lg p-8">
               <img
-                src={item.Imagens?.[0].url}
+                src={item.image}
                 alt="Image of the branch"
                 className="w-full object-contain"
               />
@@ -69,17 +72,17 @@ export function BenefitDetail({ item }: { item: Props }) {
           </div>
           <div className="md:col-span-2">
             <BenefitHeader
-              name={item.comercio}
-              discount={item.descuento}
-              category={`${item.CategoriaGeneral?.nombre} - ${item.CategoriaSimple?.nombre}`}
+              name={item.brand_name}
+              discount={item.discount}
+              category={`${item.general_category_name} - ${item.simple_category_name}`}
             />
             <BenefitInfo
-              aditionalInfo={item.aclaratoria}
-              description={item.descripcion}
+              aditionalInfo={item.clarification}
+              description={item.description}
             />
             <BenefitMetadata
               paymentMethod={paymentsMethods}
-              availableDays={item.Dium}
+              availableDays={item.dium}
             />
           </div>
         </div>
