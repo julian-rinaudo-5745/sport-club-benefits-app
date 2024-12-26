@@ -17,7 +17,7 @@ Sigue estos pasos para tener el proyecto corriendo en tu máquina local.
 
    Primero, clona el repositorio en tu máquina local:
    ```bash
-   https://github.com/julian-rinaudo-5745/sport-club-benefits-app
+   git clone https://github.com/julian-rinaudo-5745/sport-club-benefits-app
 
 2. **Descargar imagen de redis y correrla**
    ```bash
