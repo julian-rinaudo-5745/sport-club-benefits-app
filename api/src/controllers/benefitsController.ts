@@ -21,6 +21,7 @@ export class BenefitsController {
       if (benefits.length === 0) {
         res.sendStatus(404);
       }
+
       res.status(200).send(benefits);
     } catch (error) {
       this.handleError(error as Error, res);
