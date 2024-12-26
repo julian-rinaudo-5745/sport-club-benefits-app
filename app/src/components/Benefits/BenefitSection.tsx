@@ -18,7 +18,7 @@ export function BenefitsSection({ benefits, title }: Props) {
             <Link
               key={benefit.id}
               href={{
-                pathname: `/benefit/${benefit.id}`,
+                pathname: `benefit/${benefit.id}`,
               }}
             >
               <BenefitCard item={benefit} />

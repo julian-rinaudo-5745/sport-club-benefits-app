@@ -1,15 +1,13 @@
 "use client";
-import { Benefit, BenefitDetail, EndpointWrapper } from "@/types";
+import { Benefit, BenefitDetail } from "@/types";
 import useSWR from "swr";
 
 export const GetBenefits = () => {
-  return useSWR<EndpointWrapper<{ beneficios: Benefit[] }>, Error>(
-    "https://api-beneficios.prod.sportclub.com.ar/api/beneficios"
-  );
+  return useSWR<Benefit[], Error>(`${process.env.NEXT_PUBLIC_HOST}/benefits`);
 };
 
 export const GetBenefitById = (id: string) => {
-  return useSWR<EndpointWrapper<BenefitDetail>, Error>(
-    `https://api-beneficios.prod.sportclub.com.ar/api/beneficios/${id}`
+  return useSWR<BenefitDetail, Error>(
+    `${process.env.NEXT_PUBLIC_HOST}/benefits/${id}`
   );
 };

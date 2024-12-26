@@ -13,9 +13,8 @@ export default function Home() {
   if (error)
     console.error("Erros inesperado al obtener beneficios", error.message);
 
-  if (!data || data.status > 400) return redirect("/not-found");
-
-  const benefits = data.body.beneficios;
+  if (!data || !(data.length > 1)) return redirect("/not-found");
+  const benefits = data;
 
   localStorage.setItem("benefits", JSON.stringify(benefits));
 
