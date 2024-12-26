@@ -19,12 +19,12 @@ export type BenefitDetail = Pick<
 };
 
 export interface Dium {
-  lunes: boolean;
-  martes: boolean;
-  miercoles: boolean;
-  jueves: boolean;
-  viernes: boolean;
-  sabado: boolean;
-  domingo: boolean;
-  feriados: boolean;
+  monday: boolean;
+  tuesday: boolean;
+  wednesday: boolean;
+  thursday: boolean;
+  friday: boolean;
+  saturday: boolean;
+  sunday: boolean;
+  holidays: boolean;
 }

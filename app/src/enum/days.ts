@@ -1,8 +1,10 @@
 export enum Days {
-  LUNES = "lunes",
-  MARTES = "martes",
-  MIERCOLES = "miercoles",
-  JUEVES = "jueves",
-  VIERNES = "viernes",
-  FERIADO = "feriados",
+  MONDAY = "monday",
+  TUESDAY = "tuesday",
+  WEDNESDAY = "wednesday",
+  THURSDAY = "thursday",
+  FRIDAY = "friday",
+  SATURDAY = "saturday",
+  SUNDAY = "sunday",
+  HOLIDAY = "holidays",
 }

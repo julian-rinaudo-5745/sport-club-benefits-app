@@ -3,7 +3,7 @@ import { Store, RefreshCw, Wallet, Calendar } from "lucide-react";
 import { MetadataItem } from "@/components/BenefitDetail/BenefitMetaItem";
 import { Dium } from "@/types";
 import { Days } from "@/enum/days";
-import { PaymentsMethods } from "@/enum/paymentsMethods";
+import { PaymentMethods } from "@/enum/paymentsMethods";
 
 interface Props {
   paymentMethod: {
@@ -19,8 +19,8 @@ export function BenefitMetadata({ paymentMethod, availableDays }: Props) {
   const getPaymentMethods = (): string => {
     const methods = [];
 
-    if (card) methods.push(PaymentsMethods.Card);
-    if (cash) methods.push(PaymentsMethods.Cash);
+    if (card) methods.push(PaymentMethods.Card);
+    if (cash) methods.push(PaymentMethods.Cash);
 
     return methods.join("/");
   };
