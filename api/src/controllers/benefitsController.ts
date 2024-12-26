@@ -17,6 +17,7 @@ export class BenefitsController {
   public async getAll(req: Request, res: Response) {
     try {
       const benefits = await this._service.getAll();
+
       if (benefits.length === 0) {
         res.sendStatus(404);
       }

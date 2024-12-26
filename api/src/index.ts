@@ -1,11 +1,18 @@
-import express, { Express, Request, Response, Router } from "express";
+import express, { Express } from "express";
 import dotenv from "dotenv";
 import pino from "pino";
 import pinoHttp from "pino-http";
 import cors from "cors";
+const responseTime = require("response-time");
+const redis = require("redis");
 import benefitsRouter from "./routes/benefitsRouter";
 
 dotenv.config();
+
+export const redisClient = redis.createClient();
+redisClient
+  .on("error", (err: Error) => console.log("Redis Client Error", err))
+  .connect();
 
 export const logger = pino({
   transport: {
@@ -38,11 +45,12 @@ let corsOptions = {
   origin: ["http://localhost:3000"],
 };
 
-app.use(cors(corsOptions));
-
 //Routes
 app.use("/benefits", benefitsRouter);
 
 app.listen(port, () => {
   logger.info(`[server]: Server is running at http://localhost:${port}`);
 });
+
+app.use(cors(corsOptions));
+app.use(responseTime());
