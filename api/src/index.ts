@@ -42,7 +42,7 @@ const port = process.env.PORT || 3000;
 
 app.use(loggerMiddleware);
 let corsOptions = {
-  origin: ["*"],
+  origin: ["http://localhost:3000"],
 };
 
 app.use(cors(corsOptions));
