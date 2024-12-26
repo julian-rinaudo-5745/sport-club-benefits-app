@@ -13,21 +13,25 @@ Sigue estos pasos para tener el proyecto corriendo en tu máquina local.
 
 ---
 
-1. **Clona el repositorio**
+1. **Descargar imagen de redis y correrla**
+   ```bash
+    docker run -p 6379:6379 -it redis/redis-stack-server:latest
+
+2. **Clona el repositorio**
 
    Primero, clona el repositorio en tu máquina local:
    ```bash
    git clone https://github.com/julian-rinaudo-5745/sport-club-benefits-app
 
-2. **Descargar imagen de redis y correrla**
+3. **Vamos a la carpeta del proyecto**
    ```bash
-    docker run -p 6379:6379 -it redis/redis-stack-server:latest
+   cd sport-club-benefits-app/
 
-3. **Instalar todas las dependencias**
+4. **Instalar todas las dependencias**
    ```bash
    npm i
 
-4. **Iniciar ambos proyectos en simultaneo**
+5. **Iniciar ambos proyectos en simultaneo**
    ```bash
    npm run dev
 
