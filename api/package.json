@@ -18,10 +18,13 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "flatted": "^3.3.2",
     "inversify": "^6.2.1",
     "pino": "^9.6.0",
     "pino-http": "^10.3.0",
-    "reflect-metadata": "^0.2.2"
+    "redis": "^4.7.0",
+    "reflect-metadata": "^0.2.2",
+    "response-time": "^2.3.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

@@ -4,6 +4,7 @@ import { BenefitRepositoryInterface } from "../repositories/BenefitsRepositoryIn
 import { TYPES } from "../types";
 import { BenefitsDto } from "../dto/BenefitDTO";
 import { BenefitDetailDto } from "../dto/BenefitDetailDTO";
+import { logger } from "..";
 
 @injectable()
 export class BenefitsService {
