@@ -15,12 +15,12 @@ export default function BenefitDetails() {
 
     if (error) {
       console.error("Unexpected error when get a benefit", error.message);
-      // return redirect("/not-found");
+      return redirect("/not-found");
     }
 
     if (!data || !data?.id) return console.log("data", data);
     return <BenefitDetail item={data} />;
   } else {
-    // return redirect("/not-found");
+    return redirect("/not-found");
   }
 }
