@@ -1,21 +1,10 @@
-# 🚀 Cómo Ejecutar el Proyecto
+# 🚀 **Cómo Correr el Proyecto**
 
-### 🌟 Requisitos
+### 🌟 **Requisitos**
 
-Antes de comenzar, asegúrate de tener instalados los siguientes componentes:
+1. **Instalar Docker Desktop**
 
-- **Node.js** v18 o superior: [Descargar Node.js](https://nodejs.org/)
-- **Docker Desktop**: [Instalar Docker Desktop](https://docs.docker.com/get-started/get-docker/)
-
-### 🛠️ Pasos para Ejecutar el Proyecto
-
-Sigue estos pasos para tener el proyecto corriendo en tu máquina local.
-
----
-
-1. **Descargar imagen de redis y correrla**
-   ```bash
-    docker run -p 6379:6379 -it redis/redis-stack-server:latest
+   Antes de todo, asegúrate de tener **Docker Desktop** instalado en tu máquina. Puedes descargarlo desde [aquí](https://www.docker.com/products/docker-desktop) y seguir las instrucciones para tu sistema operativo.
 
 2. **Clona el repositorio**
 
@@ -27,12 +16,8 @@ Sigue estos pasos para tener el proyecto corriendo en tu máquina local.
    ```bash
    cd sport-club-benefits-app/
 
-4. **Instalar todas las dependencias**
+4. **Levantamos los contenedores (front, back y redis)**
    ```bash
-   npm i
+   docker-compose up
 
-5. **Iniciar ambos proyectos en simultaneo**
-   ```bash
-   npm run dev
-
-Debería poder ver los logs del backend y el front levantado en http://localhost:3000/
+Debería poder ver e interactuar con la app en http://localhost:3000/
