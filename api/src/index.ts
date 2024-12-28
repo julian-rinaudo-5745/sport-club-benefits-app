@@ -9,7 +9,10 @@ import benefitsRouter from "./routes/benefitsRouter";
 
 dotenv.config();
 
-export const redisClient = redis.createClient();
+export const redisClient = redis.createClient({
+  url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
+});
+
 redisClient
   .on("error", (err: Error) => console.log("Redis Client Error", err))
   .connect();
